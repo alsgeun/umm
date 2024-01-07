@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어느 날 여길 찾는다면</title>
+
+    <style>
+        @font-face {
+            font-family: '타이틀폰트';
+            src: url("fonf/naverfont.ttf");
+        }
+
+        @font-face {
+            font-family: 'etcfont';
+            src: url("fonf/나눔손글씨\ 미니\ 손글씨.ttf");
+        }
+
+        body {
+            margin-left: 10px;
+            margin-right: 50px;
+            background-color: lightgray;
+        }
+
+        .tittle {
+            margin-left: 10%;
+            margin-right: 30%;
+            font-family: '타이틀폰트';
+            font-size: 50px;
+            color: aqua;
+            text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+            background-color: transparent;
+            background-image: url(https://media.istockphoto.com/id/1288894940/ko/%EC%82%AC%EC%A7%84/%EB%88%88%EB%B3%B4%EB%9D%BC%EA%B0%80-%EC%9E%90%EC%9E%90%ED%95%9C-%EA%B2%A8%EC%9A%B8%EB%82%A0-%EA%B3%B5%EC%9B%90%EC%97%90%EC%84%9C-%EB%82%98%EB%AC%B4-%EC%82%AC%EC%9D%B4%EC%97%90-%EB%B2%A4%EC%B9%98%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8A%94-%ED%95%9C-%EC%B2%AD%EB%85%84-%EC%8B%A0%EC%84%A0%ED%95%9C-%EC%B2%AB-%EB%88%88-%EC%82%B6%EC%97%90-%EB%8C%80%ED%95%B4-%EC%83%9D%EA%B0%81-%EC%9E%90%EC%97%B0-%EC%86%8D%EC%97%90%EC%84%9C-%ED%98%BC%EC%9E%90-%EC%8B%9C%EA%B0%84%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%8A%94-%EA%B2%83-%ED%8F%89%ED%99%94%EB%A1%9C%EC%9A%B4-%EB%B6%84%EC%9C%84%EA%B8%B0-%EB%8B%A4%EC%8B%9C-%EB%B3%B4%EA%B8%B0%EC%9E%85%EB%8B%88%EB%8B%A4.jpg?s=612x612&w=0&k=20&c=h_TSIV5x-WiaJD-CGPHQtIFklgl5zO1TCi3WL1ELbfA=);
+            width: 80%;
+            height: 300px;
+        }
+
+        .bigbox {
+            font-family: 'etcfont';
+            width: 80%;
+            height: auto;
+            margin-left: 10%;
+        }
+
+        .menubox {
+            display: grid;
+            grid-template-columns: repeat(5, auto);
+            padding-left: 4px;
+            background-color: aliceblue;
+            border: 4px solid #c3f5f7;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgb(0 0 0), 0 0px 0px rgba(0, 0, 0, 0.24);
+        }
+
+        input {
+            width: 150px;
+        }
+
+        .weather {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 23px;
+        }
+
+        .menu {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 23px;
+        }
+
+        .cardcontainer {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 1fr 1fr;
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        .cardbox {
+            margin: 10px;
+            font-size: 50px;
+            background-color: aliceblue;
+            border: 5px solid #c3f5f7;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgb(0 0 0), 0 3px 6px rgba(0, 0, 0, 0.24);
+            padding: 4px;
+            padding-bottom: 0px;
+        }
+
+        .cardimg {
+            margin-top: 5px;
+            border-radius: 7px;
+            height: 250px;
+            width: 95%;
+        }
+
+        .card-body {
+            display: grid;
+            grid-template-rows: auto;
+            position: relative;
+            bottom: 10px
+        }
+
+        h5 {
+            padding: 0px;
+            font-size: 30px;
+            margin: 0px;
+        }
+
+        .rate {
+            font-size: 25px;
+            margin: 0px;
+            text-align: start;
+            font-weight: bold;
+            padding-left: 4px;
+        }
+
+        .card-text {
+            font-size: 20px;
+            margin: 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tittle">
+        <br>
+        <br>
+        <br>
+        어느 날 여길 찾는다면
+    </div>
+    <hr width="80%">
+    <div class="bigbox">
+        <div class="menubox">
+            <div class="SearchBox">
+                <input autofocus>
+                <button type="btn" id="inputbtn">검색</button>
+            </div>
+            <p class="weather">서울 날씨 :</p>
+            <p class="menu">국내 드라마</p>
+            <p class="menu">해외 드라마</p>
+            <p class="menu">예능</p>
+        </div>
+        <div class="cardcontainer">
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card1">
+                            <img id="bbimg" class="cardimg"
+                                src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uSavP0BSfnyUaJe62f0ZTXIHLs8.jpg">
+                            <div class="card-body">
+                                <h5 class="cardtitle">미스터 션샤인 (2018)</h5>
+                                <p class="rate">평점 : 4.9 / 5.0</p>
+                                <p class="card-text">2018년 7월 tvN에서 방영을 시작한 드라마. 신미양요(1871년)때 부모를 잃고 미 해군 군함 콜로라도 호에 승선해
+                                    미국에 떨어진 노비 출신 소년 유진(이병헌). 미국으로 건너가 갖은 차별을 이겨내고 군인이 된 그는 자신을 버린 조국인 조선으로 와 주둔하게 된다.
+                                    그에게 조선이란 제 부모를 때려죽인 나라이자, 자신이 도망쳐 나온 나라였으며, 양반들이 개화의 탈을 쓰고 앞다투어 매국을 하는 야만의 나라일 뿐이었다.
+                                    그러던 중 그는 남들 몰래 조선의 독립을 위해 싸우는 조선 최고 명문가의 영애, 애신(김태리)을 만나게 되는데...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/vM0BhKkY0OextIweDKCPrqpltSX.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">내일 그대와 (2017)</h5>
+                                <p class="rate">평점 : 4.2 / 5.0</p>
+                                <p class="card-text">타고난 배경도, 안정된 직장도, 빵빵한 통장도, 집도, 차도, 몸만 와도 괜찮다는 남자도 없는, 서른 한 살의 아가씨,
+                                    마린. 마린이 염치불구 하고 할 수 있는 모든 상상을 총 동원해도 언감생심 꿈꿀 수 없는, 아니 꿈도 꿔선 안 될 수준의 남자가 마린에게 반해버리고
+                                    말았고, 결혼에까지 골인하게 된 것이다! 세상에 내가 신데렐라 팔자일 줄이야! 한반도 반만년 역사상 이렇게 시집 잘 간 여자가 또 있을까? 하지만, 그
+                                    감격은 결혼한 지 일주일도 채 지나지 않아 산산이 깨져버리고야 만다. 부부는 일심동체라는데, 남편이 자신에 대해 감추고 있는 비밀이 너무나 많았던 것.
+                                    알면 알수록, 파면 팔수록 그의 정체는 미스터리하기만 한데...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/tzCAgw7fFwY0JRINqYr3fbpsFFm.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">너의 시간 속으로 (2023)</h5>
+                                <p class="rate">평점 : 4.4 / 5.0</p>
+                                <p class="card-text">상실의 아픔을 겪고 있는 여자가 마법처럼 시간을 거슬러 1998년으로 돌아간다. 그리고 그곳에서 죽은 연인과 묘하게 닮은
+                                    한 남자를 만난다. 1년 전 세상을 떠난 남자친구를 그리워하던 준희가 운명처럼 1998년으로 돌아가 남자친구와 똑같이 생긴 시헌을 만나며 벌어지는
+                                    이야기를 그린 타임슬립 로맨스.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uVJgd0E3CYfcGLz9jdUwwyRbySX.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">이두나! (2023)</h5>
+                                <p class="rate">평점 : 4.0 / 5.0</p>
+                                <p class="card-text">새로운 삶과 학교생활에 적응하려 애쓰는 대학생 원준. 조금 특이한 사정이 있는데, 바로 화려한 K-pop 아이돌 시절을
+                                    뒤로하고 돌연 은퇴한 미모의 하우스 메이트와 산다는 것.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/5qD8pAFPGuioviwaam20YNrjH8q.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">시카고 타자기 (2017)</h5>
+                                <p class="rate">평점 : 4.7 / 5.0</p>
+                                <p class="card-text">슬럼프에 빠진 베스트셀러 작가 세주와 그의 이름 뒤에 숨은 유령 작가 진오, 한 때 세주의 열혈 팬에서 안티 팬으로
+                                    돌변한 문인 덕후 전설, 그리고 의문의 오래된 '타자기'와 얽힌 세 남녀의 낭만적인 미스터리와 앤티크 로맨스의 만남</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/jy97TkIobFgXMA6VcHqFTZNB16f.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">사운드트랙 #1 (2022)</h5>
+                                <p class="rate">평점 : 4.0 / 5.0</p>
+                                <p class="card-text">20년 지기 절친인 두 남녀가 2주 동안 한 집에 머물게 되면서 서로의 마음을 알아가는 로맨스 뮤직 드라마</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/mWYW3xNeV2IM06aUl2xMUdLicpa.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">빈센조</h5>
+                                <p class="rate">평점 : 3.9 / 5.0</p>
+                                <p class="card-text">조직의 배신으로 한국으로 오게 된 이탈리아 마피아 변호사가 베테랑 독종 변호사와 함께 악당의 방식으로 악당을 쓸어버리는
+                                    이야기</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ufovksqVTNogMdU5LlCVbJSiMVa.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">D.P (2021)</h5>
+                                <p class="rate">평점 : 4.7 / 5.0</p>
+                                <p class="card-text">탈영병을 잡는다. 이등병 준호에게 떨어진 새로운 임무. 그는 탈영병들을 추적하며 지독하게 고통스러운 현실을 마주한다.
+                                    그리고 아무리 도망쳐도 벗어날 수 없다는 것도 알게 된다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/cv9gYI0XyLfNJzqJjMEc5lTyxVG.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">도시남녀의 사랑법 (2020)</h5>
+                                <p class="rate">평점 : 4.1 / 5.0</p>
+                                <p class="card-text">복잡한 도시 속 내 안에 또 다른 나를 품고 치열하게 살아가는 청춘들의 리얼 연애담을 담은 카카오TV 오리지널 드라마.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4HJq3y539fnuCN9Fn8Vwqgukvhm.jpg"
+                                class="cardimg" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">수리남 (2022)</h5>
+                                <p class="rate">평점 : 3.8 / 5.0</p>
+                                <p class="card-text">2022년 9월 Netflix에서 방영을 시작한 범죄물. 남미에서 마약 조직을 운영하는 한국인 마약왕. 그를 체포하려는
+                                    정부의 비밀 작전에 한 평범한 사업가가 합류한다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="ss.js"></script>
+</body>
+
+</html>
